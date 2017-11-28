@@ -13,20 +13,34 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="6.3"/>
-
+    
     <TextView
-        android:id="@+id/location"
+        android:id="@+id/location_offset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:text="San Francisco, CA"/>
+        tools:text="Ecuador"/>
+
+    <TextView
+        android:id="@+id/primary_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="27km SSE of Muisne"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="Mar 6, 2010" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        tools:text="Feb 2, 2016"/>
+        tools:text="3:00 PM" />
 
 
 </LinearLayout>

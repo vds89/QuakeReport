@@ -13,11 +13,11 @@ public class Earthquake {
     // Earthquake magnitude
     private String mMagnitude;
 
-    // Earthquake location
+    // Earthquake primary location
     private String mLocation;
 
     // Earthquake timestamp
-    private String mTime;
+    private long mTime;
 
     /*
     * Create a new AndroidFlavor object.
@@ -26,7 +26,7 @@ public class Earthquake {
     * @param vLocation is the location where the earthquake hits
     * @param vTime is the time at with the earthquake hits
     * */
-    public Earthquake(String vMagnitude, String vLocation, String vTime)
+    public Earthquake(String vMagnitude, String vLocation,long vTime)
     {
         mMagnitude = vMagnitude;
         mLocation = vLocation;
@@ -41,7 +41,7 @@ public class Earthquake {
     }
 
     /**
-     * Get the earthquake location
+     * Get the earthquake primary location
      */
     public String getmLocation() {
         return mLocation;
@@ -50,7 +50,7 @@ public class Earthquake {
     /**
      * Get the earthquake time
      */
-    public String getmTime() {
+    public long getmTime() {
         return mTime;
     }
 
