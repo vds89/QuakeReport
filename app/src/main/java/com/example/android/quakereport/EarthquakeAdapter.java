@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,7 +45,18 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
     }
+
+    /**
+     * Return the formatted magnitude string (i.e. "4:30 PM") from a Date object.
+     */
+    private String formatMagnitude(double magnitude) {
+        DecimalFormat magFormat = new DecimalFormat("0.0");
+        return magFormat.format(magnitude);
+    }
+
     private static final String LOCATION_SEPARATOR = " of ";
+
+
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
      *
@@ -65,11 +78,13 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Get the {@link AndroidFlavor} object located at this position in the list
         Earthquake currentEarthquake = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+
+        // Find the TextView with view ID magnitude
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
-        magnitudeTextView.setText(currentEarthquake.getmMagnitude());
+        // Format the magnitude to show 1 decimal place
+        String formattedMagnitude = formatMagnitude(currentEarthquake.getmMagnitude());
+        // Format the magnitude to show 1 decimal place
+        magnitudeTextView.setText(formattedMagnitude);
 
 
         // Get the original location string from the Earthquake object,

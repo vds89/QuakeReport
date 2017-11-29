@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="6.3"/>
-    
+
     <TextView
         android:id="@+id/location_offset"
         android:layout_width="0dp"

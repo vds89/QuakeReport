@@ -11,7 +11,7 @@ public class Earthquake {
      * Each object has 3 properties: magnitude, location and timestamp.
      */
     // Earthquake magnitude
-    private String mMagnitude;
+    double mMagnitude;
 
     // Earthquake primary location
     private String mLocation;
@@ -26,7 +26,7 @@ public class Earthquake {
     * @param vLocation is the location where the earthquake hits
     * @param vTime is the time at with the earthquake hits
     * */
-    public Earthquake(String vMagnitude, String vLocation,long vTime)
+    public Earthquake(double vMagnitude, String vLocation,long vTime)
     {
         mMagnitude = vMagnitude;
         mLocation = vLocation;
@@ -36,7 +36,7 @@ public class Earthquake {
     /**
      * Get the earthquake magnitude
      */
-    public String getmMagnitude() {
+    public double getmMagnitude() {
         return mMagnitude;
     }
 
