@@ -1,5 +1,7 @@
 package com.example.android.quakereport;
 
+import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.widget.ArrayAdapter;
 
 import android.app.Activity;
@@ -54,6 +56,55 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         return magFormat.format(magnitude);
     }
 
+    private int getMagnitudeColor(double magnitude){
+        int magnitudeColor = 0;
+        switch((int) magnitude){
+            case 0:
+            case 1:
+                int magnitude1Color = ContextCompat.getColor(getContext(), R.color.magnitude1);
+                magnitudeColor = magnitude1Color;
+                break;
+            case 2:
+                int magnitude2Color = ContextCompat.getColor(getContext(), R.color.magnitude2);
+                magnitudeColor = magnitude2Color;
+                break;
+            case 3:
+                int magnitude3Color = ContextCompat.getColor(getContext(), R.color.magnitude3);
+                magnitudeColor = magnitude3Color;
+                break;
+            case 4:
+                int magnitude4Color = ContextCompat.getColor(getContext(), R.color.magnitude4);
+                magnitudeColor = magnitude4Color;
+                break;
+            case 5:
+                int magnitude5Color = ContextCompat.getColor(getContext(), R.color.magnitude5);
+                magnitudeColor = magnitude5Color;
+                break;
+            case 6:
+                int magnitude6Color = ContextCompat.getColor(getContext(), R.color.magnitude6);
+                magnitudeColor = magnitude6Color;
+                break;
+            case 7:
+                int magnitude7Color = ContextCompat.getColor(getContext(), R.color.magnitude7);
+                magnitudeColor = magnitude7Color;
+                break;
+            case 8:
+                int magnitude8Color = ContextCompat.getColor(getContext(), R.color.magnitude8);
+                magnitudeColor = magnitude8Color;
+                break;
+            case 9:
+                int magnitude9Color = ContextCompat.getColor(getContext(), R.color.magnitude9);
+                magnitudeColor = magnitude9Color;
+                break;
+            case 10:
+                int magnitude10Color = ContextCompat.getColor(getContext(), R.color.magnitude10plus);
+                magnitudeColor = magnitude10Color;
+                break;
+        }
+        
+        return magnitudeColor;
+    }
+
     private static final String LOCATION_SEPARATOR = " of ";
 
 
@@ -78,14 +129,22 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Get the {@link AndroidFlavor} object located at this position in the list
         Earthquake currentEarthquake = getItem(position);
 
-
         // Find the TextView with view ID magnitude
-        TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
+        TextView magnitudeView = (TextView) listItemView.findViewById(R.id.magnitude);
         // Format the magnitude to show 1 decimal place
         String formattedMagnitude = formatMagnitude(currentEarthquake.getmMagnitude());
         // Format the magnitude to show 1 decimal place
-        magnitudeTextView.setText(formattedMagnitude);
+        magnitudeView.setText(formattedMagnitude);
 
+        // Set the proper background color on the magnitude circle.
+        // Fetch the background from the TextView, which is a GradientDrawable.
+        GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeView.getBackground();
+
+        // Get the appropriate background color based on the current earthquake magnitude
+        int magnitudeColor = getMagnitudeColor(currentEarthquake.getmMagnitude());
+
+        // Set the color on the magnitude circle
+        magnitudeCircle.setColor(magnitudeColor);
 
         // Get the original location string from the Earthquake object,
         // which can be in the format of "5km N of Cairo, Egypt" or "Pacific-Antarctic Ridge".

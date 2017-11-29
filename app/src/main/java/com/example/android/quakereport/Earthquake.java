@@ -54,5 +54,7 @@ public class Earthquake {
         return mTime;
     }
 
+
 }
+
 
