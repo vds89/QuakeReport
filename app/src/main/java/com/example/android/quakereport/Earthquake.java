@@ -19,6 +19,9 @@ public class Earthquake {
     // Earthquake timestamp
     private long mTime;
 
+    // Earthquake timestamp
+    private String mUrl;
+
     /*
     * Create a new AndroidFlavor object.
     *
@@ -26,11 +29,12 @@ public class Earthquake {
     * @param vLocation is the location where the earthquake hits
     * @param vTime is the time at with the earthquake hits
     * */
-    public Earthquake(double vMagnitude, String vLocation,long vTime)
+    public Earthquake(double vMagnitude, String vLocation,long vTime, String vUrl)
     {
         mMagnitude = vMagnitude;
         mLocation = vLocation;
         mTime = vTime;
+        mUrl = vUrl;
     }
 
     /**
@@ -54,6 +58,12 @@ public class Earthquake {
         return mTime;
     }
 
+    /**
+     * Get the earthquake url
+     */
+    public String getmUrl() {
+        return mUrl;
+    }
 
 }
 

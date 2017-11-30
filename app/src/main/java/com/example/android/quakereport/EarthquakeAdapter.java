@@ -57,53 +57,44 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     }
 
     private int getMagnitudeColor(double magnitude){
-        int magnitudeColor = 0;
-        switch((int) magnitude){
+        int magnitudeColorResourceId;
+        int magnitudeFloor = (int) Math.floor(magnitude);
+        switch (magnitudeFloor) {
             case 0:
             case 1:
-                int magnitude1Color = ContextCompat.getColor(getContext(), R.color.magnitude1);
-                magnitudeColor = magnitude1Color;
+                magnitudeColorResourceId = R.color.magnitude1;
                 break;
             case 2:
-                int magnitude2Color = ContextCompat.getColor(getContext(), R.color.magnitude2);
-                magnitudeColor = magnitude2Color;
+                magnitudeColorResourceId = R.color.magnitude2;
                 break;
             case 3:
-                int magnitude3Color = ContextCompat.getColor(getContext(), R.color.magnitude3);
-                magnitudeColor = magnitude3Color;
+                magnitudeColorResourceId = R.color.magnitude3;
                 break;
             case 4:
-                int magnitude4Color = ContextCompat.getColor(getContext(), R.color.magnitude4);
-                magnitudeColor = magnitude4Color;
+                magnitudeColorResourceId = R.color.magnitude4;
                 break;
             case 5:
-                int magnitude5Color = ContextCompat.getColor(getContext(), R.color.magnitude5);
-                magnitudeColor = magnitude5Color;
+                magnitudeColorResourceId = R.color.magnitude5;
                 break;
             case 6:
-                int magnitude6Color = ContextCompat.getColor(getContext(), R.color.magnitude6);
-                magnitudeColor = magnitude6Color;
+                magnitudeColorResourceId = R.color.magnitude6;
                 break;
             case 7:
-                int magnitude7Color = ContextCompat.getColor(getContext(), R.color.magnitude7);
-                magnitudeColor = magnitude7Color;
+                magnitudeColorResourceId = R.color.magnitude7;
                 break;
             case 8:
-                int magnitude8Color = ContextCompat.getColor(getContext(), R.color.magnitude8);
-                magnitudeColor = magnitude8Color;
+                magnitudeColorResourceId = R.color.magnitude8;
                 break;
             case 9:
-                int magnitude9Color = ContextCompat.getColor(getContext(), R.color.magnitude9);
-                magnitudeColor = magnitude9Color;
+                magnitudeColorResourceId = R.color.magnitude9;
                 break;
-            case 10:
-                int magnitude10Color = ContextCompat.getColor(getContext(), R.color.magnitude10plus);
-                magnitudeColor = magnitude10Color;
+            default:
+                magnitudeColorResourceId = R.color.magnitude10plus;
                 break;
         }
-        
-        return magnitudeColor;
+        return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
     }
+
 
     private static final String LOCATION_SEPARATOR = " of ";
 
