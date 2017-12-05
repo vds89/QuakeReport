@@ -35,6 +35,15 @@
         android:layout_centerInParent="true"
         android:textAppearance="?android:textAppearanceMedium"/>
 
+    <!-- TextView showing NO INTERNET CONNECTION. -->
+    <TextView
+        android:id="@+id/no_internet_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:textAppearanceMedium"/>
+
+    <!-- Progressbar is visible during the data fetching. -->
     <ProgressBar
         android:id="@+id/loading_spinner"
         style="@style/Widget.AppCompat.ProgressBar"
