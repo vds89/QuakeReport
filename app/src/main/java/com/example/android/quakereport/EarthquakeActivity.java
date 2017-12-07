@@ -27,6 +27,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -99,10 +101,11 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
             }
         });
 
-
+        // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager cm =
-                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        // Get details on the currently active default data network
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
@@ -157,4 +160,23 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
+
+    //To create the option menu button and the top bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
